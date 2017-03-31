@@ -1,0 +1,10 @@
+.info {
+	background-color: $color-blue;
+	color: $color-lighter-brown;
+	padding: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+
+	&__name {
+		margin-bottom: 10px;
+	}
+}

@@ -1,0 +1,65 @@
+.stats {
+	display: flex;
+	background-color: $color-blue;
+
+	&__item {
+		flex-grow: 1;
+		display: inline-block;
+		text-align: center;
+		height: 90px;
+		overflow: hidden;
+	}
+
+	&__icon,
+	&__level {
+		display: block;
+		color: $color-yellow;
+		font-size: 40px;
+	}
+
+	&__level {
+		color: $color-light-brown;
+		position: relative;
+		top: -40px;
+		overflow: hidden;
+		max-height: 30px;
+		transition: max-height 200ms linear;
+	}
+
+	&__change {
+		display: block;
+		color: $color-light-brown;
+		line-height: 30px;
+		font-size: 0;
+		transition: font-size 200ms linear;
+
+		&--small {
+			font-size: .5em;
+		}
+
+		&--big {
+			font-size: 1em;
+		}
+	}
+}
+
+@media (min-width: 500px) {
+	.stats {
+		&__item {
+			height: 120px;
+		}
+
+		&__icon,
+		&__level {
+			font-size: 60px;
+		}
+
+		&__level {
+			top: -60px;
+		}
+
+		&__change {
+			line-height: 45px;
+		}
+	}
+}

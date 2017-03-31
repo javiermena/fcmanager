@@ -1,0 +1,128 @@
+.card {
+	padding: 5px 30px 0;
+	background: $color-cream;
+	font-family: Helvetica, Arial, sans-serif;
+	text-align: center;
+	color: $color-dark-grey;
+
+	&__description {
+		height: 100px;
+		line-height: 100px;
+	}
+
+	&__descriptionText {
+		display: inline-block;
+		vertical-align: middle;
+		line-height: normal;
+		font-size: 18px;
+		transition: opacity 200ms linear;
+
+		&--isSwiped {
+			opacity: 0;
+		}
+	}
+
+	&__background {
+		background: url('/dist/images/cardBackground.png') repeat;
+		border-radius: 10px;
+		margin-bottom: 20px;
+		height: auto;
+		width: 75%;
+		margin: 0 auto 20px;
+	}
+
+	&__imageContainer {
+		position: relative;
+		border-radius: 10px;
+		transform: translate(0) rotateZ(0);
+		transition: 200ms;
+		background-color: $color-green;
+
+		&--panLeft {
+			transform: translate(-50px) rotateZ(-10deg);
+			transition: 500ms;
+
+			.card__yesText {
+				display: block;
+			}
+		}
+
+		&--panRight {
+			transform: translate(50px) rotateZ(10deg);
+			transition: 500ms;
+
+			.card__noText {
+				display: block;
+			}
+		}
+
+		&--isSwiped {
+			animation-name: spin;
+			animation-duration: 1500ms;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+	}
+
+	&__image {
+		width: 100%;
+	}
+
+	&__name {
+		line-height: 30px;
+		font-size: 18px;
+		padding-bottom: 10px;
+		opacity: 1;
+		transition: opacity 200ms linear;
+
+		&--isSwiped {
+			opacity: 0;
+		}
+	}
+
+	&__yesText,
+	&__noText {
+		position: absolute;
+		top: 0;
+		font-size: 24px;
+		font-weight: bold;
+		display: none;
+		width: calc(100% - 40px);
+		color: $color-white;
+		background-color: rgba($color-black, 0.6);
+		padding: 20px;
+		text-align: left;
+		border-radius: 10px 10px 0 0;
+	}
+
+	&__noText {
+		text-align: right;
+	}
+}
+
+@keyframes spin {
+    from {
+        transform:rotateY(360deg);
+    }
+    to {
+        transform:rotateY(0deg);
+    }
+}
+
+@media (min-width: 500px) {
+	.card {
+		&__descriptionText,
+		&__name {
+			font-size: 25px;
+		}
+
+		&__yesText,
+		&__noText { 
+			font-size: 32px;
+		}
+
+		&__background {
+			width: 100%;
+		}
+	}
+}

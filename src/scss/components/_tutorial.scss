@@ -1,0 +1,47 @@
+.tutorial {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #222;
+    top: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms linear, visibility 200ms linear;
+
+    &__title {
+        font-size: 60px;
+        color: indianred;
+        margin: 100px 0;
+    }
+
+    &__text {
+        font-size: 32px;
+        line-height: 1.5;
+        color: #fff;
+        padding: 0 30px;
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        padding: 20px 40px;
+        border: none;
+        font-size: 32px;
+        background-color: darkseagreen;
+        margin-top: 30px;
+    }
+
+    &--isShown {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (min-width: 500px) {
+	.tutorial {
+		width: 500px; 
+		height: 900px; 
+		margin: 20px auto; 
+	}
+}
