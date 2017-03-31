@@ -249,17 +249,17 @@ const cards = [
         noText: `It's too soon`,
         noStats: [0, -0.05, 0, -0.15],
     },
-   /* {
+    {
         id: '26',
         name: 'The President',
-        description: 'The Prez promised me to always play on the starting 11.',
+        description: `I'd like to build an statue of our Top Player in front of our stadium.`,
         image: 'president.png',
-        yesText: 'Ok',
-        yesStats: [0, 0.15, -0.05, 0],
-        noText: 'Haha No...',
-        noStats: [0, -0.05, 0.05, 0],
+        yesText: `Yes, he's so gorgeous`,
+        yesStats: [-0.15, 0.15, 0, -0.1],
+        noText: `Not the greatest idea...`,
+        noStats: [0, -0.1, 0.05, 0.05],
     },
-    {
+   /*  {
         id: '27',
         name: 'The President',
         description: 'The Prez promised me to always play on the starting 11.',
