@@ -54,16 +54,16 @@ class App extends Component {
 
     getNewCard() {
         const lastCards = this.state.lastCards;
-        const lastCard = this.state.currentCard;
+        const currentCard = this.state.currentCard;
         let newCard = getRandomValue(cards);
 
         if (lastCards.length >= MAX_OLD_CARDS) {
             lastCards.shift();
         }
 
-        lastCards.push(lastCard.id);
+        lastCards.push(currentCard.id);
 
-        while (lastCard.name === newCard.name || lastCards.indexOf(newCard.id) !== -1) {
+        while (currentCard.name === newCard.name || lastCards.indexOf(newCard.id) !== -1) {
             newCard = getRandomValue(cards);
         }
 
@@ -77,18 +77,14 @@ class App extends Component {
         const yesStat = this.state.currentCard.yesStats[stat];
         const noStat = this.state.currentCard.noStats[stat];
 
-        if (size === 'small') {
-            if (this.state.isPanLeft && yesStat && Math.abs(yesStat) <= MIN_MAX_ICON_VALUE) {
-                return true;
-            } else if (this.state.isPanRight && noStat && Math.abs(noStat) <= MIN_MAX_ICON_VALUE) {
-                return true;
-            }
-        } else if (size === 'big') {
-            if (this.state.isPanLeft && yesStat && Math.abs(yesStat) > MIN_MAX_ICON_VALUE) {
-                return true;
-            } else if (this.state.isPanRight && noStat && Math.abs(noStat) > MIN_MAX_ICON_VALUE) {
-                return true;
-            }
+        if (this.state.isPanLeft && yesStat) {
+            return (
+                Math.abs(yesStat) <= MIN_MAX_ICON_VALUE && size === 'small') || (Math.abs(yesStat) > MIN_MAX_ICON_VALUE && size === 'big'
+            );
+        } else if (this.state.isPanRight && noStat) {
+            return (
+                Math.abs(noStat) <= MIN_MAX_ICON_VALUE && size === 'small') || (Math.abs(noStat) > MIN_MAX_ICON_VALUE && size === 'big'
+            );
         }
 
         return false;
