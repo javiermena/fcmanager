@@ -6,7 +6,7 @@
   "rules": {
     "indent": ["error", 4],
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent": ["error", 4]
   },
   "parserOptions": {
     "ecmaFeatures": {

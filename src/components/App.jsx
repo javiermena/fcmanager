@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import Hammer from 'react-hammerjs';
 import classNames from 'classnames';
+import { sample } from 'lodash';
 
-import Info from './Info';
 import cards from '../data/cards';
 import gameoverTexts from '../data/gameoverTexts';
+
+import Footer from '../containers/Footer';
 
 const DIRECTION_LEFT = 2;
 const DIRECTION_RIGHT = 4;
 const ICON_SIZE = document.documentElement.clientWidth >= 500 ? 60 : 40;
 const MIN_MAX_ICON_VALUE = 0.1;
-const TEAM_NAMES = ['White', 'Blue', 'Purple', 'Yellow', 'Pink', 'Black', 'Green', 'Red'];
 const MAX_OLD_CARDS = 15;
 const MONEY = 0;
 const PLAYERS = 1;
 const RESULTS = 2;
 const PRESS = 3;
-
-const getRandomValue = array => array[Math.floor(Math.random() * array.length)];
 
 class App extends Component {
     constructor(props) {
@@ -31,8 +30,7 @@ class App extends Component {
             isGameOver: false,
             stats: [0.5, 0.5, 0.5, 0.5],
             daysInCharge: 0,
-            currentCard: getRandomValue(cards),
-            currentTeamName: getRandomValue(TEAM_NAMES),
+            currentCard: sample(cards),
             lastCards: [],
             gameoverText: '',
         };
@@ -55,7 +53,7 @@ class App extends Component {
     getNewCard() {
         const lastCards = this.state.lastCards;
         const currentCard = this.state.currentCard;
-        let newCard = getRandomValue(cards);
+        let newCard = sample(cards);
 
         if (lastCards.length >= MAX_OLD_CARDS) {
             lastCards.shift();
@@ -64,7 +62,7 @@ class App extends Component {
         lastCards.push(currentCard.id);
 
         while (currentCard.name === newCard.name || lastCards.indexOf(newCard.id) !== -1) {
-            newCard = getRandomValue(cards);
+            newCard = sample(cards);
         }
 
         this.setState({
@@ -162,7 +160,6 @@ class App extends Component {
             isSwiped: false,
             stats: [0.5, 0.5, 0.5, 0.5],
             daysInCharge: 0,
-            currentTeamName: getRandomValue(TEAM_NAMES),
         });
     }
 
@@ -175,7 +172,6 @@ class App extends Component {
             isTutorialShown,
             daysInCharge,
             currentCard,
-            currentTeamName,
             gameoverText,
         } = this.state;
 
@@ -274,7 +270,7 @@ class App extends Component {
                     </div>
                     <p className={cardNameClass}>{currentCard.name}</p>
                 </div>
-                <Info daysInCharge={daysInCharge} currentTeamName={currentTeamName} />
+                <Footer />
                 <div className={tutorialClass}>
                     <h1 className="tutorial__title">Welcome!</h1>
                     <p className="tutorial__text">
