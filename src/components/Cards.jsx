@@ -87,7 +87,13 @@ Cards.propTypes = {
         noStats: React.PropTypes.arrayOf(React.PropTypes.number),
     }).isRequired,
     stats: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
-    actions: React.PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    actions: React.PropTypes.shape({
+        checkGameOver: React.PropTypes.func,
+        getNewCard: React.PropTypes.func,
+        setPanState: React.PropTypes.func,
+        setSwipeState: React.PropTypes.func,
+        updateStats: React.PropTypes.func,
+    }).isRequired,
 };
 
 export default Cards;
