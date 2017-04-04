@@ -11,7 +11,7 @@ const initialState = {
     currentCard: sample(cards),
     isPanLeft: false,
     isPanRight: false,
-    stats: [0.95, 0.5, 0.5, 0.5],
+    stats: [50, 50, 50, 50],
     isSwiped: false,
     isTutorialShown: false,
     isGameOver: false,
@@ -55,7 +55,7 @@ function fmApp(state = initialState, action) {
 
         if (state.isGameOver) {
             const stats = state.stats;
-            const gameover = stats.filter(val => val <= 0 || val >= 1);
+            const gameover = stats.filter(val => val <= 0 || val >= 100);
             const val = gameover[0];
             const index = stats.indexOf(val);
 
@@ -70,7 +70,7 @@ function fmApp(state = initialState, action) {
     }
     case Actions.CHECK_GAME_OVER: {
         const stats = state.stats;
-        const gameover = stats.filter(val => val <= 0 || val >= 1);
+        const gameover = stats.filter(val => val <= 0 || val >= 100);
 
         return {
             ...state,
@@ -81,6 +81,7 @@ function fmApp(state = initialState, action) {
         return {
             ...initialState,
             currentCard: state.currentCard,
+            teamName: sample(teamNames),
         };
     default:
         return state;

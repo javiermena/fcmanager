@@ -13,12 +13,12 @@
 	&__icon,
 	&__level {
 		display: block;
-		color: $color-yellow;
+		color: $color-light-green;
 		font-size: 40px;
 	}
 
 	&__level {
-		color: $color-light-brown;
+		color: lighten($color-light-grey, 25%);
 		position: relative;
 		top: -40px;
 		overflow: hidden;

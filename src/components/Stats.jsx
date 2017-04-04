@@ -20,7 +20,7 @@ const Stats = ({ currentCard, isPanLeft, isPanRight, stats }) => {
         return false;
     };
 
-    const getIconSize = icon => stats[icon] * ICON_SIZE;
+    const getIconSize = icon => ((100 - stats[icon]) / 100) * ICON_SIZE;
 
     const moneyClass = classNames(
         'stats__change fa fa-circle',
