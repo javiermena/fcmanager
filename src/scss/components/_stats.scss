@@ -28,7 +28,7 @@
 
 	&__change {
 		display: block;
-		color: $color-light-brown;
+		color: lighten($color-light-grey, 25%);
 		line-height: 30px;
 		font-size: 0;
 		transition: font-size 200ms linear;
