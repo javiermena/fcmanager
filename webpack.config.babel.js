@@ -69,6 +69,7 @@ export default () => ({
                             plugins: () => [autoprefixer],
                         },
                     },
+                    { loader: 'resolve-url-loader' },
                     { loader: 'sass-loader' },
                 ],
             }),
@@ -82,8 +83,8 @@ export default () => ({
             use: 'file-loader',
         },
         {
-            test: /\.jpe?g$|\.gif$|\.png$/i,
-            use: 'file-loader?name=/img/[name].[ext]',
+            test: /\.(jpg|png|svg)$/,
+            use: 'file-loader',
         }],
     },
     devServer: {

@@ -1,8 +1,7 @@
 import { sample } from 'lodash';
 
 import * as Actions from '../actions';
-import cards from '../data/cards';
-import gameoverTexts from '../data/gameoverTexts';
+import { cards, gameOverCardsMin, gameOverCardsMax } from '../data/cards';
 import teamNames from '../data/teamNames';
 import { MAX_OLD_CARDS } from '../constants';
 
@@ -12,7 +11,7 @@ const initialState = {
     currentCard: sample(cards),
     isPanLeft: false,
     isPanRight: false,
-    stats: [0.5, 0.5, 0.5, 0.5],
+    stats: [0.95, 0.5, 0.5, 0.5],
     isSwiped: false,
     isTutorialShown: false,
     isGameOver: false,
@@ -54,6 +53,15 @@ function fmApp(state = initialState, action) {
             newCard = sample(cards);
         }
 
+        if (state.isGameOver) {
+            const stats = state.stats;
+            const gameover = stats.filter(val => val <= 0 || val >= 1);
+            const val = gameover[0];
+            const index = stats.indexOf(val);
+
+            newCard = val <= 0 ? gameOverCardsMin[index] : gameOverCardsMax[index];
+        }
+
         return {
             ...state,
             currentCard: newCard,
@@ -63,20 +71,17 @@ function fmApp(state = initialState, action) {
     case Actions.CHECK_GAME_OVER: {
         const stats = state.stats;
         const gameover = stats.filter(val => val <= 0 || val >= 1);
-        let gameoverText = '';
-
-        if (gameover.length) {
-            const val = gameover[0];
-            const index = stats.indexOf(val);
-            gameoverText = gameoverTexts[Math.floor(val)][index];
-        }
 
         return {
             ...state,
-            isGameOver: gameover.length,
-            gameoverText,
+            isGameOver: gameover.length > 0,
         };
     }
+    case Actions.RESTART_GAME:
+        return {
+            ...initialState,
+            currentCard: state.currentCard,
+        };
     default:
         return state;
     }

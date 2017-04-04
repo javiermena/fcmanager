@@ -8,6 +8,7 @@ const mapStateToProps = state =>
         isPanLeft: state.isPanLeft,
         isPanRight: state.isPanRight,
         isSwiped: state.isSwiped,
+        isGameOver: state.isGameOver,
         currentCard: state.currentCard,
         stats: state.stats,
     });

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Hammer from 'react-hammerjs';
 import { DIRECTION_LEFT, DIRECTION_RIGHT } from '../constants';
 
-const Cards = ({ isPanLeft, isPanRight, isSwiped, currentCard, stats, actions }) => {
+const Cards = ({ isPanLeft, isPanRight, isSwiped, isGameOver, currentCard, stats, actions }) => {
     const cardDescriptionTextClass = classNames(
         'card__descriptionText',
         { 'card__descriptionText--isSwiped': isSwiped },
@@ -19,9 +19,12 @@ const Cards = ({ isPanLeft, isPanRight, isSwiped, currentCard, stats, actions })
         { 'card__imageContainer--panLeft': isPanLeft },
         { 'card__imageContainer--panRight': isPanRight },
         { 'card__imageContainer--isSwiped': isSwiped },
+        { 'card__imageContainer--isGameOver': isGameOver },
     );
 
-    const imagePath = `src/images/${currentCard.image}`;
+    /*eslint-disable */
+    const imagePath = () => require(`../assets/images/${currentCard.image}`);
+    /*eslint-enable */
 
     const handlePan = ev =>
         actions.setPanState(ev.direction === DIRECTION_LEFT, ev.direction === DIRECTION_RIGHT);
@@ -29,16 +32,23 @@ const Cards = ({ isPanLeft, isPanRight, isSwiped, currentCard, stats, actions })
     const handlePanEnd = () => actions.setPanState(false, false);
 
     const handleSwipe = (ev) => {
-        let newStats = stats;
+        if (isGameOver) {
+            actions.setSwipeState(true);
+            setTimeout(() => {
+                actions.restartGame();
+            }, 999);
+        } else {
+            let newStats = stats;
 
-        if (ev.direction === DIRECTION_LEFT) {
-            newStats = stats.map((num, i) => num - currentCard.yesStats[i]);
-        } else if (ev.direction === DIRECTION_RIGHT) {
-            newStats = stats.map((num, i) => num - currentCard.noStats[i]);
+            if (ev.direction === DIRECTION_LEFT) {
+                newStats = stats.map((num, i) => num - currentCard.yesStats[i]);
+            } else if (ev.direction === DIRECTION_RIGHT) {
+                newStats = stats.map((num, i) => num - currentCard.noStats[i]);
+            }
+
+            actions.updateStats(newStats);
+            actions.checkGameOver();
         }
-
-        actions.updateStats(newStats);
-        actions.checkGameOver();
 
         setTimeout(() => {
             actions.getNewCard();
@@ -61,7 +71,7 @@ const Cards = ({ isPanLeft, isPanRight, isSwiped, currentCard, stats, actions })
                   onSwipe={(event) => { if (!isSwiped) handleSwipe(event); }}
                 >
                     <div className={imgClass}>
-                        <img src={imagePath} alt="Card" className="card__image" draggable="false" />
+                        <img src={imagePath()} alt="Card" className="card__image" draggable="false" />
                         <span className="card__yesText">{currentCard.yesText}</span>
                         <span className="card__noText">{currentCard.noText}</span>
                     </div>
@@ -76,6 +86,7 @@ Cards.propTypes = {
     isPanLeft: React.PropTypes.bool.isRequired,
     isPanRight: React.PropTypes.bool.isRequired,
     isSwiped: React.PropTypes.bool.isRequired,
+    isGameOver: React.PropTypes.bool.isRequired,
     currentCard: React.PropTypes.shape({
         id: React.PropTypes.string,
         name: React.PropTypes.string,

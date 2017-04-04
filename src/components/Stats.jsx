@@ -59,14 +59,14 @@ const Stats = ({ currentCard, isPanLeft, isPanRight, stats }) => {
                 <i className="stats__level fa fa-futbol-o" style={{ maxHeight: getIconSize(PLAYERS) }} aria-hidden="true" />
             </div>
             <div className="stats__item">
-                <i className={pressClass} aria-hidden="true" />
-                <i className="stats__icon fa fa-newspaper-o" aria-hidden="true" />
-                <i className="stats__level fa fa-newspaper-o" style={{ maxHeight: getIconSize(PRESS) }} aria-hidden="true" />
-            </div>
-            <div className="stats__item">
                 <i className={resultsClass} aria-hidden="true" />
                 <i className="stats__icon fa fa-line-chart" aria-hidden="true" />
                 <i className="stats__level fa fa-line-chart" style={{ maxHeight: getIconSize(RESULTS) }} aria-hidden="true" />
+            </div>
+            <div className="stats__item">
+                <i className={pressClass} aria-hidden="true" />
+                <i className="stats__icon fa fa-newspaper-o" aria-hidden="true" />
+                <i className="stats__level fa fa-newspaper-o" style={{ maxHeight: getIconSize(PRESS) }} aria-hidden="true" />
             </div>
         </div>
     );

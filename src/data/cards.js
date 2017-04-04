@@ -1,4 +1,4 @@
-const cards = [
+export const cards = [
     {
         id: '1',
         name: 'Top Player',
@@ -501,4 +501,88 @@ const cards = [
     },*/
 ];
 
-export default cards;
+export const gameOverCardsMin = [
+    {
+        id: '1',
+        name: 'Need a loan?',
+        description: 'You ran out of money!',
+        image: 'gameover.png',
+        yesText: 'Try again',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Try again',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '2',
+        name: 'But I was nice to them!',
+        description: 'The players hate you and made you got fired!',
+        image: 'gameover.png',
+        yesText: 'Try again',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Try again',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '3',
+        name: 'The Last Of Us',
+        description: 'Your team is the last qualified! You got fired!',
+        image: 'gameover.png',
+        yesText: 'Try again',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Try again',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '4',
+        name: '#MangerGate2017',
+        description: 'The press hates you and convinced the president to fire you!',
+        image: 'gameover.png',
+        yesText: 'Try again',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Try again',
+        noStats: [0, 0, 0, 0],
+    },
+];
+
+export const gameOverCardsMax = [
+    {
+        id: '1',
+        name: 'Arsene Who?',
+        description: 'The team has so much money that has signed a more famous manager! You got fired!',
+        image: 'gameover.png',
+        yesText: 'Try again',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Try again',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '2',
+        name: 'But I decided the post-game dinner!',
+        description: 'The players believe they are so important that you are not needed anymore!',
+        image: 'gameover.png',
+        yesText: 'Try again',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Try again',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '3',
+        name: 'The (Not) Special One',
+        description: 'Your team is doing so well that a new Portuguese manager got signed in!',
+        image: 'gameover.png',
+        yesText: 'Try again',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Try again',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '4',
+        name: 'At least I can work as a narrator...',
+        description: 'The president got jealous of your good relationship with the journalists! You got fired after a press conference',
+        image: 'gameover.png',
+        yesText: 'Try again',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Try again',
+        noStats: [0, 0, 0, 0],
+    },
+];
