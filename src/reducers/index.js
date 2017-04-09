@@ -1,20 +1,20 @@
 import { sample } from 'lodash';
 
 import * as Actions from '../actions';
-import { cards, gameOverCardsMin, gameOverCardsMax } from '../data/cards';
+import { cards, tutorialCards, gameOverCardsMin, gameOverCardsMax } from '../data/cards';
 import teamNames from '../data/teamNames';
 import { MAX_OLD_CARDS } from '../constants';
 
 const initialState = {
     teamName: sample(teamNames),
     daysInCharge: 1,
-    currentCard: sample(cards),
+    currentCard: tutorialCards[0],
     isPanLeft: false,
     isPanRight: false,
     stats: [50, 50, 50, 50],
     isSwiped: false,
-    isTutorialShown: false,
     isGameOver: false,
+    isTutorial: true,
     lastCards: [],
     gameoverText: '',
 };
@@ -41,19 +41,27 @@ function fmApp(state = initialState, action) {
         };
     case Actions.GET_NEW_CARD: {
         const lastCards = state.lastCards;
+        const currentCard = state.currentCard;
+        let isTutorial = state.isTutorial;
         let newCard = sample(cards);
 
         if (lastCards.length >= MAX_OLD_CARDS) {
             lastCards.shift();
         }
 
-        lastCards.push(state.currentCard.id);
+        lastCards.push(currentCard.id);
 
-        while (state.currentCard.name === newCard.name || lastCards.indexOf(newCard.id) !== -1) {
+        while (currentCard.name === newCard.name || lastCards.indexOf(newCard.id) !== -1) {
             newCard = sample(cards);
         }
 
-        if (state.isGameOver) {
+        if (state.isTutorial) {
+            if (currentCard.id < tutorialCards.length) {
+                newCard = tutorialCards[currentCard.id];
+            } else {
+                isTutorial = false;
+            }
+        } else if (state.isGameOver) {
             const stats = state.stats;
             const gameover = stats.filter(val => val <= 0 || val >= 100);
             const val = gameover[0];
@@ -66,6 +74,7 @@ function fmApp(state = initialState, action) {
             ...state,
             currentCard: newCard,
             lastCards,
+            isTutorial,
         };
     }
     case Actions.CHECK_GAME_OVER: {
@@ -75,6 +84,12 @@ function fmApp(state = initialState, action) {
         return {
             ...state,
             isGameOver: gameover.length > 0,
+        };
+    }
+    case Actions.DISMISS_TUTORIAL: {
+        return {
+            ...state,
+            isTutorial: false,
         };
     }
     case Actions.RESTART_GAME:

@@ -501,6 +501,59 @@ export const cards = [
     },*/
 ];
 
+export const tutorialCards = [
+    {
+        id: '1',
+        name: 'Welcome to Football Card Manager!',
+        description: 'Swipe the card below left to start the tutorial or swipe right anytime to start playing the game.',
+        image: 'economist.png',
+        yesText: 'Tutorial',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Play now',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '2',
+        name: 'Welcome to Football Card Manager!',
+        description: 'Your career depends on the following four stats: money, players, team results and press',
+        image: 'icons.png',
+        yesText: 'Next tip',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Play now!',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '3',
+        name: 'Welcome to Football Card Manager!',
+        description: 'You will get proposals and advices from your advisors, and they will have an effect on your manager stats.',
+        image: 'assistant.png',
+        yesText: 'Next tip',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Ok, sure, so play now!',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '4',
+        name: 'Welcome to Football Card Manager!',
+        description: 'By moving the image a bit you can take a peek on which stats will change.',
+        image: 'swipe.png',
+        yesText: 'One last tip',
+        yesStats: [0, 0, 0, 0],
+        noText: 'Play now? Please?',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '5',
+        name: 'Welcome to Football Card Manager!',
+        description: 'Getting them to 100% or 0% will get you fired, so be careful! Try lasting on your position as long as possible!',
+        image: 'president.png',
+        yesText: `Let's play!`,
+        yesStats: [0, 0, 0, 0],
+        noText: `Yeah, let's play!`,
+        noStats: [0, 0, 0, 0],
+    },
+];
+
 export const gameOverCardsMin = [
     {
         id: '1',

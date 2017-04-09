@@ -3,7 +3,15 @@ import classNames from 'classnames';
 import Hammer from 'react-hammerjs';
 import { DIRECTION_LEFT, DIRECTION_RIGHT } from '../constants';
 
-const Cards = ({ isPanLeft, isPanRight, isSwiped, isGameOver, currentCard, stats, actions }) => {
+const Cards = ({
+    isPanLeft,
+    isPanRight,
+    isSwiped,
+    isGameOver,
+    isTutorial,
+    currentCard,
+    stats,
+    actions }) => {
     const cardDescriptionTextClass = classNames(
         'card__descriptionText',
         { 'card__descriptionText--isSwiped': isSwiped },
@@ -32,7 +40,10 @@ const Cards = ({ isPanLeft, isPanRight, isSwiped, isGameOver, currentCard, stats
     const handlePanEnd = () => actions.setPanState(false, false);
 
     const handleSwipe = (ev) => {
-        if (isGameOver) {
+        if (isTutorial) {
+            actions.setSwipeState(true);
+            if (ev.direction === DIRECTION_RIGHT) actions.dismissTutorial();
+        } else if (isGameOver) {
             actions.setSwipeState(true);
             setTimeout(() => {
                 actions.restartGame();
@@ -87,6 +98,7 @@ Cards.propTypes = {
     isPanRight: React.PropTypes.bool.isRequired,
     isSwiped: React.PropTypes.bool.isRequired,
     isGameOver: React.PropTypes.bool.isRequired,
+    isTutorial: React.PropTypes.bool.isRequired,
     currentCard: React.PropTypes.shape({
         id: React.PropTypes.string,
         name: React.PropTypes.string,

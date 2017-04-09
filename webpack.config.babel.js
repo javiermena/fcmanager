@@ -84,7 +84,7 @@ export default () => ({
         },
         {
             test: /\.(jpg|png|svg)$/,
-            use: 'file-loader',
+            use: 'file-loader?name=[name].[ext]',
         }],
     },
     devServer: {
