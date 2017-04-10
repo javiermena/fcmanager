@@ -11,7 +11,6 @@ export default () => ({
         app: [
             'babel-polyfill',
             'react-hot-loader/patch',
-            'webpack-dev-server/client?http://localhost:8080',
             path.join(__dirname, 'src/index.jsx'),
         ],
     },
@@ -88,8 +87,5 @@ export default () => ({
             test: /\.(jpg|png|svg)$/,
             use: 'file-loader?name=[name].[ext]&publicPath=assets/images/&outputPath=assets/images/',
         }],
-    },
-    devServer: {
-        hot: true,
     },
 });

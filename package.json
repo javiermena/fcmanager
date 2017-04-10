@@ -7,11 +7,9 @@
     "build": "npm run clean && npm run prod",
     "dev": "webpack-dev-server --hot --history-api-fallback --open",
     "dev-ext": "webpack-dev-server --hot --history-api-fallback --open --host 0.0.0.0",
-    "assets:dist": "npm run images && npm run fonts",
-    "images": "cp src/images/* dist/images/",
-    "fonts": "cp src/fonts/* dist/fonts/",
     "clean": "rm -rf dist",
-    "prod": "webpack -p"
+    "prod": "webpack --config webpack.config.prod.babel.js -p",
+    "deploy": "npm run build && surge -p dist -d fcmanager.surge.sh"
   },
   "author": "",
   "license": "ISC",
