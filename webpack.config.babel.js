@@ -4,6 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 export default () => ({
     entry: {
@@ -31,6 +32,7 @@ export default () => ({
                 ],
             },
         }),
+        new FaviconsWebpackPlugin('./src/assets/images/favicon.png'),
     ],
     resolve: {
         extensions: ['.js', '.jsx'],

@@ -44,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "extract-text-webpack-plugin": "^2.1.0",
+    "favicons-webpack-plugin": "0.0.7",
     "file-loader": "^0.10.1",
     "font-awesome-sass-loader": "^1.0.3",
     "html-webpack-plugin": "^2.28.0",
