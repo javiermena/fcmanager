@@ -3,7 +3,7 @@ import React from 'react';
 const Info = ({ daysInCharge, teamName }) =>
     <div className="info">
         <p className="info__name">{teamName} Team</p>
-        <p className="info__days">{daysInCharge} days in charge of the team</p>
+        <p className="info__days">{daysInCharge} {daysInCharge > 1 ? 'days' : 'day'} in charge of the team</p>
     </div>;
 
 Info.propTypes = {
