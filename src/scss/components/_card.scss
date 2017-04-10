@@ -43,7 +43,7 @@
 			transform: translate(-50px) rotateZ(-10deg);
 			transition: 500ms;
 
-			.card__yesText {
+			.card__noText {
 				display: block;
 			}
 		}
@@ -52,7 +52,7 @@
 			transform: translate(50px) rotateZ(10deg);
 			transition: 500ms;
 
-			.card__noText {
+			.card__yesText {
 				display: block;
 			}
 		}
@@ -101,7 +101,7 @@
 		border-radius: 10px 10px 0 0;
 	}
 
-	&__noText {
+	&__yesText {
 		text-align: right;
 	}
 }

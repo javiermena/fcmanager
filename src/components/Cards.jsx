@@ -42,7 +42,7 @@ const Cards = ({
     const handleSwipe = (ev) => {
         if (isTutorial) {
             actions.setSwipeState(true);
-            if (ev.direction === DIRECTION_RIGHT) actions.dismissTutorial();
+            if (ev.direction === DIRECTION_LEFT) actions.dismissTutorial();
         } else if (isGameOver) {
             actions.setSwipeState(true);
             setTimeout(() => {
@@ -52,9 +52,9 @@ const Cards = ({
             let newStats = stats;
 
             if (ev.direction === DIRECTION_LEFT) {
-                newStats = stats.map((num, i) => num - currentCard.yesStats[i]);
-            } else if (ev.direction === DIRECTION_RIGHT) {
                 newStats = stats.map((num, i) => num - currentCard.noStats[i]);
+            } else if (ev.direction === DIRECTION_RIGHT) {
+                newStats = stats.map((num, i) => num - currentCard.yesStats[i]);
             }
 
             actions.updateStats(newStats);
@@ -83,8 +83,8 @@ const Cards = ({
                 >
                     <div className={imgClass}>
                         <img src={imagePath()} alt="Card" className="card__image" draggable="false" />
-                        <span className="card__yesText">{currentCard.yesText}</span>
                         <span className="card__noText">{currentCard.noText}</span>
+                        <span className="card__yesText">{currentCard.yesText}</span>
                     </div>
                 </Hammer>
             </div>

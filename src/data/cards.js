@@ -505,7 +505,7 @@ export const tutorialCards = [
     {
         id: '1',
         name: 'Welcome to Football Card Manager!',
-        description: 'Swipe the card below left to start the tutorial or swipe right anytime to start playing the game.',
+        description: 'Swipe the card below right to start the tutorial or swipe left anytime to start playing the game.',
         image: 'economist.png',
         yesText: 'Tutorial',
         yesStats: [0, 0, 0, 0],
@@ -535,6 +535,16 @@ export const tutorialCards = [
     {
         id: '4',
         name: 'Welcome to Football Card Manager!',
+        description: 'A small circle on top of the stats means a small change, a big one means the change will be noticeable.',
+        image: 'icons.png',
+        yesText: 'Next tip',
+        yesStats: [0, 0, 0, 0],
+        noText: 'I wanna play now!',
+        noStats: [0, 0, 0, 0],
+    },
+    {
+        id: '5',
+        name: 'Welcome to Football Card Manager!',
         description: 'By moving the image a bit you can take a peek on which stats will change.',
         image: 'swipe.png',
         yesText: 'One last tip',
@@ -543,7 +553,7 @@ export const tutorialCards = [
         noStats: [0, 0, 0, 0],
     },
     {
-        id: '5',
+        id: '6',
         name: 'Welcome to Football Card Manager!',
         description: 'Getting them to 100% or 0% will get you fired, so be careful! Try lasting on your position as long as possible!',
         image: 'president.png',
