@@ -52,7 +52,7 @@ export const cards = [
     {
         id: '6',
         name: 'Top Player',
-        description: 'We are playing agains the last qualified and we are kinda tired by now.',
+        description: 'We are playing against the last qualified and we are kinda tired by now.',
         image: 'player.png',
         yesText: 'Play it cool',
         yesStats: [0, 25, 10, -15],
