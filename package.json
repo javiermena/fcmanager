@@ -1,7 +1,7 @@
 {
-  "name": "fmanager",
+  "name": "fcmanager",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simplified (and football themed) React+Redux version of the Reigns game.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --history-api-fallback --open",
@@ -10,7 +10,7 @@
     "build": "npm run clean && npm run prod",
     "deploy": "npm run build && surge -p dist -d fcmanager.surge.sh"
   },
-  "author": "",
+  "author": "Javier Mena",
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
