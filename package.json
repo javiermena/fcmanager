@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && npm run prod",
-    "dev": "webpack-dev-server --hot --history-api-fallback --open",
-    "dev-ext": "webpack-dev-server --hot --history-api-fallback --open --host 0.0.0.0",
+    "start": "webpack-dev-server --hot --history-api-fallback --open",
     "clean": "rm -rf dist",
     "prod": "webpack --config webpack.config.prod.babel.js -p",
+    "build": "npm run clean && npm run prod",
     "deploy": "npm run build && surge -p dist -d fcmanager.surge.sh"
   },
   "author": "",
