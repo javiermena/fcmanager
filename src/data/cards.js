@@ -597,7 +597,7 @@ export const gameOverCardsMin = [
     },
     {
         id: '4',
-        name: '#MangerGate2017',
+        name: '#ManagerGate2017',
         description: 'The press hates you and convinced the president to fire you!',
         image: 'gameover.png',
         yesText: 'Try again',
