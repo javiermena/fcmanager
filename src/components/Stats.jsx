@@ -7,11 +7,11 @@ const Stats = ({ currentCard, isPanLeft, isPanRight, stats }) => {
         const yesStat = currentCard.yesStats[stat];
         const noStat = currentCard.noStats[stat];
 
-        if (isPanLeft && yesStat) {
+        if (isPanRight && yesStat) {
             return (
                 Math.abs(yesStat) <= MIN_MAX_ICON_VALUE && size === 'small') || (Math.abs(yesStat) > MIN_MAX_ICON_VALUE && size === 'big'
             );
-        } else if (isPanRight && noStat) {
+        } else if (isPanLeft && noStat) {
             return (
                 Math.abs(noStat) <= MIN_MAX_ICON_VALUE && size === 'small') || (Math.abs(noStat) > MIN_MAX_ICON_VALUE && size === 'big'
             );
