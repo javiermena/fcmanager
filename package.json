@@ -1,7 +1,7 @@
 {
     "name": "fcmanager",
     "version": "1.0.0",
-    "description": "A simplified (and football themed) React+Redux version of the Reigns game.",
+    "description": "A simplified (and football themed) React+Redux version of Reigns.",
     "main": "index.js",
     "scripts": {
         "dev": "webpack-dev-server --hot --history-api-fallback --open",
