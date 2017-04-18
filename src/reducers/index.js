@@ -1,5 +1,4 @@
 import { sample } from 'lodash';
-
 import * as Actions from '../actions';
 import { cards, tutorialCards, gameOverCardsMin, gameOverCardsMax } from '../data/cards';
 import teamNames from '../data/teamNames';

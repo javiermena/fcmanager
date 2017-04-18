@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
-
 import Info from '../components/Info';
 
-const mapStateToProps = state =>
-    ({
-        teamName: state.teamName,
-        daysInCharge: state.daysInCharge,
-    });
+const mapStateToProps = state => ({
+    teamName: state.teamName,
+    daysInCharge: state.daysInCharge,
+});
 
 const Footer = connect(
-  mapStateToProps,
+    mapStateToProps,
 )(Info);
 
 export default Footer;

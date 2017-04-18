@@ -8,7 +8,6 @@ import 'font-awesome/scss/font-awesome.scss';
 import './scss/main.scss';
 
 import fmApp from './reducers';
-
 import App from './components/App';
 
 /* eslint-disable no-underscore-dangle */

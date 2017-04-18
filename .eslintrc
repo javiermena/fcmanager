@@ -1,21 +1,21 @@
 {
-  "parser": "babel-eslint",
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-    "indent": ["error", 4],
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "react/jsx-indent": ["error", 4]
-  },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "extends": ["airbnb"]
+    "parser": "babel-eslint",
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": ["error", 4],
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "react/jsx-indent": ["error", 4]
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": ["airbnb"]
 }

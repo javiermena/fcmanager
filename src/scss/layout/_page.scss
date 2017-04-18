@@ -5,6 +5,7 @@ body {
 
 body {
 	background: $color-light-grey;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 #main {
@@ -21,17 +22,13 @@ body {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-}
 
-@media (min-width: 500px) {
-	.container {
+	@include small-desktop {
 		display: block;
-		width: 500px;
+		width: 500px;		
 	}
-}
 
-@media (min-width: 500px) and (min-height: 900px) {
-	.container {
+	@include desktop {
 		height: 810px;
 	}
 }

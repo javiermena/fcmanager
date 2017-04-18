@@ -1,7 +1,6 @@
 # README #
 
-A simplified (and football themed) React+Redux version of the [Reigns](http://www.devolverdigital.com/games/view/reigns)
-game.
+A simplified (and football themed) React+Redux version [Reigns](http://www.devolverdigital.com/games/view/reigns).
 
 ![Demo](demo.gif)
 
@@ -11,7 +10,7 @@ Made with love and a bunch of FE technologies:
 - Sass + PostCSS
 - Hammer.js
 - Babel
-- Webpack 2
+- Webpack
 
 Take a look at the app up and running [here](http://fcmanager.surge.sh).
 
@@ -19,16 +18,16 @@ Take a look at the app up and running [here](http://fcmanager.surge.sh).
 
 ```
 $ npm install
-$ npm start
+$ npm run dev
 $ open http://localhost:8080
 ```
 
 ## FAQ ##
 
-### 1. Where did you get those nice images? ###
+### 1. Are you going to implement the full game? ###
+
+This is a just for fun PoC to try FE stuff, so not at the moment but who knows ;)
+
+### 2. Where did you get those nice images? ###
 
 You can download them from free at [Freepik](http://www.freepik.com/free-vector/people-avatars_761436.htm).
-
-### 2. Are you going to implement the full game? ###
-
-This was just a fun PoC to try FE stuff, so not at the moment but who knows ;)

@@ -1,26 +1,38 @@
 .card {
-	padding: 5px 10px 0;
 	background: $color-cream;
-	font-family: Helvetica, Arial, sans-serif;
-	text-align: center;
 	color: $color-dark-grey;
 	display: flex;
-	flex-grow: 1;
 	flex-direction: column;
+	flex-grow: 1;
+	padding: 5px 10px 0;
+	text-align: center;
+
+	@include small-desktop {
+		padding: 5px 30px 0;
+		display: block;
+	}
 
 	&__description {
+		flex-grow: 1;		
 		height: 100px;
 		line-height: 100px;
-		flex-grow: 1;
+
+		@include desktop {
+			font-size: 25px;
+		}
 	}
 
 	&__descriptionText {
 		display: inline-block;
-		vertical-align: middle;
-		line-height: normal;
 		font-size: 18px;
+		line-height: 1.25;
 		opacity: 1;
 		transition: opacity 200ms linear;
+		vertical-align: middle;
+
+		@include desktop {
+			font-size: 25px;
+		}
 
 		&--isSwiped {
 			opacity: 0;
@@ -30,18 +42,21 @@
 	&__background {
 		background: url('../../assets/images/cardBackground.png') repeat;
 		border-radius: 10px;
-		margin-bottom: 20px;
 		height: auto;
-		width: 75%;
 		margin: 0 auto 20px;
+		width: 75%;
+
+		@include desktop {
+			width: 100%;
+		}
 	}
 
 	&__imageContainer {
-		position: relative;
+		background-color: $color-green;
 		border-radius: 10px;
+		position: relative;
 		transform: translate(0) rotateZ(0);
 		transition: 200ms;
-		background-color: $color-green;
 
 		&--panLeft {
 			transform: translate(-50px) rotateZ(-10deg);
@@ -62,10 +77,7 @@
 		}
 
 		&--isSwiped {
-			animation-name: spin;
-			animation-duration: 1500ms;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
+			animation: spin 1500ms linear infinite;
 		}
 
 		&--isGameOver {
@@ -74,17 +86,17 @@
 	}
 
 	&__image {
-		width: 100%;
 		pointer-events: none;
+		width: 100%;
 	}
 
 	&__name {
-		line-height: 30px;
+		flex-grow: 1;
 		font-size: 18px;
+		line-height: 30px;
 		padding-bottom: 10px;
 		opacity: 1;
 		transition: opacity 200ms linear;
-		flex-grow: 1;
 
 		&--isSwiped {
 			opacity: 0;
@@ -93,17 +105,21 @@
 
 	&__yesText,
 	&__noText {
-		position: absolute;
-		top: 0;
+		background-color: rgba($color-black, 0.6);
+		border-radius: 10px 10px 0 0;
+		color: $color-white;
+		display: none;
 		font-size: 24px;
 		font-weight: bold;
-		display: none;
-		width: calc(100% - 40px);
-		color: $color-white;
-		background-color: rgba($color-black, 0.6);
 		padding: 20px;
+		position: absolute;
 		text-align: left;
-		border-radius: 10px 10px 0 0;
+		top: 0;
+		width: calc(100% - 40px);
+
+		@include desktop {
+			font-size: 32px;
+		}
 	}
 
 	&__yesText {
@@ -113,34 +129,9 @@
 
 @keyframes spin {
     from {
-        transform:rotateY(360deg);
+        transform: rotateY(360deg);
     }
     to {
-        transform:rotateY(0deg);
+        transform: rotateY(0deg);
     }
-}
-
-@media (min-width: 500px) {
-	.card {
-		padding: 5px 30px 0;
-		display: block;
-	}
-}
-
-@media (min-width: 500px) and (min-height: 900px) {
-	.card {
-		&__descriptionText,
-		&__name {
-			font-size: 25px;
-		}
-
-		&__yesText,
-		&__noText { 
-			font-size: 32px;
-		}
-
-		&__background {
-			width: 100%;
-		}
-	}
 }
