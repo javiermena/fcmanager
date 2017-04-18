@@ -1,4 +1,4 @@
-# README #
+# Football Card Manager #
 
 A simplified (and football themed) React+Redux version [Reigns](http://www.devolverdigital.com/games/view/reigns).
 
